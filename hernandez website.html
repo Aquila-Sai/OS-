@@ -259,28 +259,27 @@
         }
 
         .card {
-            background: linear-gradient(135deg, rgba(26, 47, 77, 0.6), rgba(45, 74, 111, 0.4));
-            backdrop-filter: blur(10px);
-            border-radius: 24px;
-            padding: 2rem;
-            border: 1px solid rgba(109, 213, 250, 0.2);
-            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-            cursor: pointer;
+           background: linear-gradient(135deg, rgba(74, 158, 255, 0.15), rgba(155, 125, 255, 0.1));
+            backdrop-filter: blur(20px);
+            border-radius: 30px;
+            padding: 3rem;
+            border: 2px solid rgba(109, 213, 250, 0.3);
             position: relative;
             overflow: hidden;
+            transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
             animation: fadeInUp 0.8s ease backwards;
         }
 
         .card::before {
-            content: '';
+           content: '';
             position: absolute;
             top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(109, 213, 250, 0.1) 0%, transparent 70%);
-            opacity: 0;
-            transition: opacity 0.4s ease;
+            right: -50%;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, var(--cyan-glow), transparent);
+            opacity: 0.1;
+            animation: pulse 3s ease-in-out infinite;
         }
 
         .card:hover::before {
