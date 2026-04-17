@@ -1,830 +1,291 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WinVault — Windows Installation Archive</title>
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WinVault — Windows Installation Archive</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+
+:root{
+--navy-deep:#0a1628;
+--navy-mid:#1a2f4d;
+--navy-light:#2d4a6f;
+--blue-accent:#4a9eff;
+--cyan-glow:#6dd5fa;
+--purple-hint:#9b7dff;
+--pink-pop:#ff6b9d;
+--cream:#fef8f0;
+}
+
+body{
+font-family:'DM Sans',sans-serif;
+background:linear-gradient(135deg,var(--navy-deep),var(--navy-mid),var(--navy-light));
+color:var(--cream);
+overflow-x:hidden;
+}
+
+/* NAV */
+nav{
+position:sticky;
+top:0;
+background:rgba(10,22,40,0.85);
+backdrop-filter:blur(15px);
+padding:1rem 2rem;
+z-index:100;
+}
+
+.nav-container{
+max-width:1400px;
+margin:auto;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.logo{
+font-family:'Fredoka';
+font-size:1.8rem;
+background:linear-gradient(135deg,var(--cyan-glow),var(--blue-accent));
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.nav-links{
+display:flex;
+gap:2rem;
+list-style:none;
+}
+
+.nav-links a{
+color:var(--cream);
+text-decoration:none;
+transition:.3s;
+}
+.nav-links a:hover{color:var(--cyan-glow);}
+
+/* HERO */
+.hero{
+text-align:center;
+padding:5rem 2rem;
+animation:fadeIn 1s ease;
+}
+
+@keyframes fadeIn{
+from{opacity:0;transform:translateY(20px);}
+to{opacity:1;transform:translateY(0);}
+}
+
+h1{
+font-family:'Fredoka';
+font-size:3.5rem;
+background:linear-gradient(135deg,var(--cream),var(--cyan-glow));
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.subtitle{opacity:.8;margin:1rem 0 2rem;}
+
+.btn{
+padding:1rem 2rem;
+border-radius:30px;
+text-decoration:none;
+margin:.5rem;
+display:inline-block;
+transition:.3s;
+}
+
+.btn-primary{
+background:linear-gradient(135deg,var(--blue-accent),var(--purple-hint));
+color:#fff;
+}
+
+.btn-secondary{
+border:2px solid var(--cyan-glow);
+color:var(--cyan-glow);
+}
+
+.btn:hover{
+transform:translateY(-3px) scale(1.05);
+}
+
+/* SECTIONS */
+.section{
+max-width:1200px;
+margin:4rem auto;
+padding:0 2rem;
+}
+
+.section-title{
+text-align:center;
+font-family:'Fredoka';
+font-size:2rem;
+color:var(--cyan-glow);
+}
+
+/* VIDEO */
+.video-container{
+position:relative;
+width:100%;
+padding-bottom:56.25%;
+border-radius:20px;
+overflow:hidden;
+margin-top:1rem;
+transition:.3s;
+box-shadow:0 10px 30px rgba(0,0,0,0.4);
+}
+
+.video-container iframe{
+position:absolute;
+width:100%;
+height:100%;
+border:none;
+}
+
+.video-container:hover{
+transform:scale(1.03);
+}
+
+/* GRID */
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:2rem;
+margin-top:2rem;
+}
+
+.card{
+background:rgba(255,255,255,0.05);
+padding:2rem;
+border-radius:20px;
+backdrop-filter:blur(10px);
+transition:.3s;
+border:1px solid transparent;
+}
+
+.card:hover{
+transform:translateY(-5px);
+border:1px solid var(--cyan-glow);
+}
+
+/* LINKS */
+.link{
+display:block;
+padding:.8rem;
+margin:.5rem 0;
+background:rgba(255,255,255,0.05);
+border-radius:10px;
+text-decoration:none;
+color:var(--cream);
+transition:.3s;
+}
+.link:hover{
+background:rgba(74,158,255,0.3);
+}
+
+/* FOOTER */
+footer{
+text-align:center;
+padding:2rem;
+opacity:.6;
+margin-top:4rem;
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+h1{font-size:2rem;}
+.nav-links{display:none;}
+}
+</style>
 
-        :root {
-            --navy-deep: #0a1628;
-            --navy-mid: #1a2f4d;
-            --navy-light: #2d4a6f;
-            --blue-accent: #4a9eff;
-            --cyan-glow: #6dd5fa;
-            --purple-hint: #9b7dff;
-            --pink-pop: #ff6b9d;
-            --cream: #fef8f0;
-        }
-
-        body {
-            font-family: 'DM Sans', sans-serif;
-            background: linear-gradient(135deg, var(--navy-deep) 0%, var(--navy-mid) 50%, var(--navy-light) 100%);
-            background-attachment: fixed;
-            color: var(--cream);
-            overflow-x: hidden;
-            min-height: 100vh;
-        }
-
-        /* Animated background particles */
-        .particles {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 1;
-        }
-
-        .particle {
-            position: absolute;
-            width: 4px;
-            height: 4px;
-            background: var(--cyan-glow);
-            border-radius: 50%;
-            opacity: 0.3;
-            animation: float 15s infinite;
-        }
-
-        .particle:nth-child(2) { left: 20%; animation-delay: 2s; background: var(--blue-accent); }
-        .particle:nth-child(3) { left: 40%; animation-delay: 4s; background: var(--purple-hint); }
-        .particle:nth-child(4) { left: 60%; animation-delay: 1s; background: var(--pink-pop); }
-        .particle:nth-child(5) { left: 80%; animation-delay: 3s; background: var(--cyan-glow); }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
-            10% { opacity: 0.3; }
-            90% { opacity: 0.3; }
-            50% { transform: translateY(-10vh) rotate(360deg); }
-        }
-
-        /* Navigation */
-        nav {
-            position: sticky;
-            top: 0;
-            background: rgba(10, 22, 40, 0.85);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(109, 213, 250, 0.1);
-            padding: 1.2rem 2rem;
-            z-index: 100;
-            animation: slideDown 0.6s ease;
-        }
-
-        @keyframes slideDown {
-            from { transform: translateY(-100%); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
-
-        .nav-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-family: 'Fredoka', sans-serif;
-            font-size: 1.8rem;
-            font-weight: 600;
-            background: linear-gradient(135deg, var(--cyan-glow), var(--blue-accent), var(--purple-hint));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .logo::before {
-            content: "⚙";
-            font-size: 2rem;
-            -webkit-text-fill-color: var(--cyan-glow);
-            animation: spin 8s linear infinite;
-        }
-
-        @keyframes spin {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-            align-items: center;
-        }
-
-        .nav-links a {
-            color: var(--cream);
-            text-decoration: none;
-            font-weight: 500;
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .nav-links a::before {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            width: 0;
-            height: 2px;
-            background: linear-gradient(90deg, var(--cyan-glow), var(--blue-accent));
-            transform: translateX(-50%);
-            transition: width 0.3s ease;
-        }
-
-        .nav-links a:hover::before {
-            width: 80%;
-        }
-
-        .nav-links a:hover {
-            color: var(--cyan-glow);
-        }
-
-        /* Hero Section */
-        .hero {
-            max-width: 1400px;
-            margin: 4rem auto;
-            padding: 4rem 2rem;
-            text-align: center;
-            position: relative;
-            z-index: 2;
-            animation: fadeInUp 0.8s ease 0.2s backwards;
-        }
-
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        h1 {
-            font-family: 'Fredoka', sans-serif;
-            font-size: 4rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, var(--cream) 0%, var(--cyan-glow) 50%, var(--blue-accent) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            line-height: 1.2;
-        }
-
-        .subtitle {
-            font-size: 1.3rem;
-            color: rgba(254, 248, 240, 0.8);
-            margin-bottom: 3rem;
-            font-weight: 300;
-        }
-
-        .cta-buttons {
-            display: flex;
-            gap: 1.5rem;
-            justify-content: center;
-            flex-wrap: wrap;
-            animation: fadeInUp 0.8s ease 0.4s backwards;
-        }
-
-        .btn {
-            padding: 1rem 2.5rem;
-            border-radius: 50px;
-            font-weight: 600;
-            text-decoration: none;
-            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-            font-size: 1.1rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, var(--blue-accent), var(--purple-hint));
-            color: white;
-            box-shadow: 0 8px 30px rgba(74, 158, 255, 0.3);
-        }
-
-        .btn-secondary {
-            background: rgba(109, 213, 250, 0.1);
-            color: var(--cyan-glow);
-            border: 2px solid var(--cyan-glow);
-        }
-
-        .btn:hover {
-            transform: translateY(-3px) scale(1.05);
-            box-shadow: 0 12px 40px rgba(74, 158, 255, 0.5);
-        }
-
-        /* Card Grid */
-        .section {
-            max-width: 1400px;
-            margin: 6rem auto;
-            padding: 0 2rem;
-            position: relative;
-            z-index: 2;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 3rem;
-            animation: fadeInUp 0.8s ease;
-        }
-
-        .section-title {
-            font-family: 'Fredoka', sans-serif;
-            font-size: 2.5rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            color: var(--cyan-glow);
-        }
-
-        .section-desc {
-            color: rgba(254, 248, 240, 0.7);
-            font-size: 1.1rem;
-        }
-
-        .card-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .card {
-           background: linear-gradient(135deg, rgba(74, 158, 255, 0.15), rgba(155, 125, 255, 0.1));
-            backdrop-filter: blur(20px);
-            border-radius: 30px;
-            padding: 3rem;
-            border: 2px solid rgba(109, 213, 250, 0.3);
-            position: relative;
-            overflow: hidden;
-            transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
-            animation: fadeInUp 0.8s ease backwards;
-        }
-
-        .card::before {
-           content: '';
-            position: absolute;
-            top: -50%;
-            right: -50%;
-            width: 200px;
-            height: 200px;
-            background: radial-gradient(circle, var(--cyan-glow), transparent);
-            opacity: 0.1;
-            animation: pulse 3s ease-in-out infinite;
-        }
-
-        .card:hover::before {
-            opacity: 1;
-        }
-
-        .card:hover {
-            transform: translateY(-10px);
-            border-color: var(--cyan-glow);
-            box-shadow: 0 20px 60px rgba(74, 158, 255, 0.3);
-        }
-
-        .card:nth-child(1) { animation-delay: 0.1s; }
-        .card:nth-child(2) { animation-delay: 0.2s; }
-        .card:nth-child(3) { animation-delay: 0.3s; }
-        .card:nth-child(4) { animation-delay: 0.4s; }
-        .card:nth-child(5) { animation-delay: 0.5s; }
-        .card:nth-child(6) { animation-delay: 0.6s; }
-
-        .card-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            display: inline-block;
-            filter: drop-shadow(0 4px 20px rgba(109, 213, 250, 0.5));
-        }
-
-        .card-title {
-            font-family: 'Fredoka', sans-serif;
-            font-size: 1.5rem;
-            margin-bottom: 0.8rem;
-            color: var(--cream);
-        }
-
-        .card-desc {
-            color: rgba(254, 248, 240, 0.7);
-            line-height: 1.6;
-            margin-bottom: 1.5rem;
-        }
-
-        .card-link {
-            color: var(--cyan-glow);
-            text-decoration: none;
-            font-weight: 600;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            transition: gap 0.3s ease;
-        }
-
-        .card-link:hover {
-            gap: 1rem;
-        }
-
-        /* Featured Section */
-        .featured-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2.5rem;
-            margin-top: 3rem;
-        }
-
-        .featured-card {
-            background: linear-gradient(135deg, rgba(74, 158, 255, 0.15), rgba(155, 125, 255, 0.1));
-            backdrop-filter: blur(20px);
-            border-radius: 30px;
-            padding: 3rem;
-            border: 2px solid rgba(109, 213, 250, 0.3);
-            position: relative;
-            overflow: hidden;
-            transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
-            animation: fadeInUp 0.8s ease backwards;
-        }
-
-        .featured-card::after {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -50%;
-            width: 200px;
-            height: 200px;
-            background: radial-gradient(circle, var(--cyan-glow), transparent);
-            opacity: 0.1;
-            animation: pulse 3s ease-in-out infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); opacity: 0.1; }
-            50% { transform: scale(1.3); opacity: 0.2; }
-        }
-
-        .featured-card:hover {
-            transform: scale(1.03);
-            border-color: var(--cyan-glow);
-            box-shadow: 0 30px 80px rgba(74, 158, 255, 0.4);
-        }
-
-        .featured-badge {
-            display: inline-block;
-            padding: 0.5rem 1.2rem;
-            background: linear-gradient(135deg, var(--pink-pop), var(--purple-hint));
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-            box-shadow: 0 4px 15px rgba(255, 107, 157, 0.3);
-        }
-
-        /* Links List */
-        .links-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 1rem;
-            margin-top: 2rem;
-        }
-
-        .link-item {
-            background: rgba(26, 47, 77, 0.4);
-            padding: 1rem 1.5rem;
-            border-radius: 16px;
-            border: 1px solid rgba(109, 213, 250, 0.15);
-            transition: all 0.3s ease;
-            text-decoration: none;
-            color: var(--cream);
-            display: flex;
-            align-items: center;
-            gap: 0.8rem;
-        }
-
-        .link-item:hover {
-            background: rgba(74, 158, 255, 0.2);
-            border-color: var(--cyan-glow);
-            transform: translateX(5px);
-        }
-
-        .link-arrow {
-            margin-left: auto;
-            color: var(--cyan-glow);
-            transition: transform 0.3s ease;
-        }
-
-        .link-item:hover .link-arrow {
-            transform: translateX(5px);
-        }
-
-        /* Footer */
-        footer {
-            background: rgba(10, 22, 40, 0.8);
-            backdrop-filter: blur(20px);
-            border-top: 1px solid rgba(109, 213, 250, 0.1);
-            padding: 4rem 2rem 2rem;
-            margin-top: 8rem;
-            position: relative;
-            z-index: 2;
-        }
-
-        .footer-content {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 3rem;
-            margin-bottom: 3rem;
-        }
-
-        .footer-section h3 {
-            font-family: 'Fredoka', sans-serif;
-            color: var(--cyan-glow);
-            margin-bottom: 1.5rem;
-            font-size: 1.3rem;
-        }
-
-        .footer-links {
-            list-style: none;
-        }
-
-        .footer-links li {
-            margin-bottom: 0.8rem;
-        }
-
-        .footer-links a {
-            color: rgba(254, 248, 240, 0.7);
-            text-decoration: none;
-            transition: all 0.3s ease;
-            display: inline-block;
-        }
-
-        .footer-links a:hover {
-            color: var(--cyan-glow);
-            transform: translateX(5px);
-        }
-
-        .footer-bottom {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(109, 213, 250, 0.1);
-            text-align: center;
-            color: rgba(254, 248, 240, 0.5);
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2.5rem;
-            }
-
-            .nav-links {
-                display: none;
-            }
-
-            .card-grid, .featured-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .hero {
-                padding: 2rem 1rem;
-            }
-
-            .section {
-                margin: 3rem auto;
-            }
-        }
-
-        /* Scroll reveal */
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-        }
-
-        .reveal.active {
-            animation: fadeInUp 0.8s ease forwards;
-        }
-    </style>
 </head>
+
 <body>
-    <div class="particles">
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-    </div>
 
-    <nav>
-        <div class="nav-container">
-            <div class="logo">WinVault</div>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#windows-os">Windows OS</a></li>
-                <li><a href="#server">Server</a></li>
-                <li><a href="#activities">Case Study</a></li>
-                <li><a href="#about">About</a></li>
-            </ul>
-        </div>
-    </nav>
+<nav>
+<div class="nav-container">
+<div class="logo">WinVault</div>
+<ul class="nav-links">
+<li><a href="#home">Home</a></li>
+<li><a href="#featured">Featured</a></li>
+<li><a href="#windows">Windows</a></li>
+</ul>
+</div>
+</nav>
 
-    <section class="hero" id="home">
-        <h1>Windows Installation Archive</h1>
-        <p class="subtitle">Complete video tutorials from Windows NT 4.0 to Windows 11 — plus Server editions and hands-on labs</p>
-        <div class="cta-buttons">
-            <a href="#windows-os" class="btn btn-primary">Explore Windows OS</a>
-            <a href="#server" class="btn btn-secondary">Server Tutorials</a>
-        </div>
-    </section>
+<section class="hero" id="home">
+<h1>Windows Installation Archive</h1>
+<p class="subtitle">Complete tutorials from Windows NT to Windows 11</p>
 
-    <section class="section reveal" id="featured">
-        <div class="section-header">
-            <h2 class="section-title">Featured Tutorials</h2>
-            <p class="section-desc">Most popular installation guides and activities</p>
-        </div>
+<a href="#featured" class="btn btn-primary">Watch Tutorials</a> <a href="#windows" class="btn btn-secondary">Browse All</a>
 
-        <div class="featured-grid">
-            <div class="featured-card">
-                <span class="featured-badge">🪟 Latest</span>
-                <div class="card-icon">💻</div>
-                <h3 class="card-title">Windows 11</h3>
-                <p class="card-desc">Complete installation walkthrough of the latest Windows OS with all modern features and settings.</p>
-                <a href="https://youtu.be/yykO9gH8Dpw" target="_blank" class="card-link">Watch Tutorial →</a>
-            </div>
+</section>
 
-            <div class="featured-card">
-                <span class="featured-badge">🖥️ Server</span>
-                <div class="card-icon">⚙️</div>
-                <h3 class="card-title">Server 2008 R2</h3>
-                <p class="card-desc">Professional server setup and configuration guide with detailed explanations.</p>
-                <a href="https://youtu.be/G8AsS01ysEA" target="_blank" class="card-link">Watch Tutorial →</a>
-            </div>
+<!-- FEATURED -->
 
-            <div class="featured-card">
-                <span class="featured-badge">💾 Classic</span>
-                <div class="card-icon">🎮</div>
-                <h3 class="card-title">Windows XP</h3>
-                <p class="card-desc">Nostalgic installation tutorial for the beloved classic operating system.</p>
-                <a href="https://youtu.be/iJIyQxvh8KM" target="_blank" class="card-link">Watch Tutorial →</a>
-            </div>
-        </div>
-    </section>
+<section class="section" id="featured">
+<h2 class="section-title">Featured Tutorials</h2>
 
-    <section class="section reveal" id="windows-os">
-        <div class="section-header">
-            <h2 class="section-title">💻 Windows OS Tutorials</h2>
-            <p class="section-desc">Step-by-step installation guides for every major Windows release</p>
-        </div>
+<div class="grid">
 
-        <div class="card-grid">
-            <div class="card">
-                <div class="card-icon">🖥️</div>
-                <h3 class="card-title">Windows NT 4.0</h3>
-                <p class="card-desc">Legacy enterprise OS installation</p>
-                <a href="YOUR_YOUTUBE_LINK_HERE" target="_blank" class="card-link">View Guide →</a>
-            </div>
+<div class="card">
+<h3>Windows 11</h3>
+<div class="video-container">
+<iframe loading="lazy"
+src="https://www.youtube.com/embed/yykO9gH8Dpw"
+allowfullscreen></iframe>
+</div>
+</div>
 
-            <div class="card">
-                <div class="card-icon">💿</div>
-                <h3 class="card-title">Windows 95</h3>
-                <p class="card-desc">The revolutionary UI that changed everything</p>
-                <a href="YOUR_YOUTUBE_LINK_HERE" target="_blank" class="card-link">View Guide →</a>
-            </div>
+<div class="card">
+<h3>Windows Server 2008 R2</h3>
+<div class="video-container">
+<iframe loading="lazy"
+src="https://www.youtube.com/embed/G8AsS01ysEA"
+allowfullscreen></iframe>
+</div>
+</div>
 
-            <div class="card">
-                <div class="card-icon">🌐</div>
-                <h3 class="card-title">Windows 98</h3>
-                <p class="card-desc">Enhanced version with better hardware support</p>
-                <a href="YOUR_YOUTUBE_LINK_HERE" target="_blank" class="card-link">View Guide →</a>
-            </div>
+<div class="card">
+<h3>Windows XP</h3>
+<div class="video-container">
+<iframe loading="lazy"
+src="https://www.youtube.com/embed/iJIyQxvh8KM"
+allowfullscreen></iframe>
+</div>
+</div>
 
-            <div class="card">
-                <div class="card-icon">🔷</div>
-                <h3 class="card-title">Windows 2000</h3>
-                <p class="card-desc">Professional OS with NT kernel stability</p>
-                <a href="https://youtu.be/LacOVc2Ofh0" target="_blank" class="card-link">View Guide →</a>
-            </div>
+</div>
+</section>
 
-            <div class="card">
-                <div class="card-icon">🎨</div>
-                <h3 class="card-title">Windows ME</h3>
-                <p class="card-desc">Multimedia-focused home edition</p>
-                <a href="YOUR_YOUTUBE_LINK_HERE" target="_blank" class="card-link">View Guide →</a>
-            </div>
+<!-- WINDOWS -->
 
-            <div class="card">
-                <div class="card-icon">🎮</div>
-                <h3 class="card-title">Windows XP</h3>
-                <p class="card-desc">The beloved classic everyone remembers</p>
-                <a href="https://youtu.be/iJIyQxvh8KM" target="_blank" class="card-link">View Guide →</a>
-            </div>
+<section class="section" id="windows">
+<h2 class="section-title">All Windows Tutorials</h2>
 
-            <div class="card">
-                <div class="card-icon">✨</div>
-                <h3 class="card-title">Windows Vista</h3>
-                <p class="card-desc">Aero interface with visual enhancements</p>
-                <a href="https://youtu.be/0siP9hEWVPg" target="_blank" class="card-link">View Guide →</a>
-            </div>
+<a class="link" href="https://youtu.be/LacOVc2Ofh0" target="_blank">Windows 2000</a> <a class="link" href="https://youtu.be/iJIyQxvh8KM" target="_blank">Windows XP</a> <a class="link" href="https://youtu.be/0siP9hEWVPg" target="_blank">Windows Vista</a> <a class="link" href="https://youtu.be/tt6bNADKhgE" target="_blank">Windows 7</a> <a class="link" href="https://youtu.be/qvPykLs85FU" target="_blank">Windows 8</a> <a class="link" href="https://youtu.be/QIGwn6rpa98" target="_blank">Windows 10</a> <a class="link" href="https://youtu.be/yykO9gH8Dpw" target="_blank">Windows 11</a>
 
-            <div class="card">
-                <div class="card-icon">🏆</div>
-                <h3 class="card-title">Windows 7</h3>
-                <p class="card-desc">Refined and perfected user experience</p>
-                <a href="https://youtu.be/tt6bNADKhgE" target="_blank" class="card-link">View Guide →</a>
-            </div>
+</section>
 
-            <div class="card">
-                <div class="card-icon">📱</div>
-                <h3 class="card-title">Windows 8</h3>
-                <p class="card-desc">Modern UI with touch optimization</p>
-                <a href="https://youtu.be/qvPykLs85FU" target="_blank" class="card-link">View Guide →</a>
-            </div>
+<footer>
+© 2026 Nathaniell Jeffrey F. Hernandez • WinVault
+</footer>
 
-            <div class="card">
-                <div class="card-icon">🚀</div>
-                <h3 class="card-title">Windows 10</h3>
-                <p class="card-desc">Unified platform across all devices</p>
-                <a href="https://youtu.be/QIGwn6rpa98" target="_blank" class="card-link">View Guide →</a>
-            </div>
+<script>
+// smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(anchor=>{
+anchor.addEventListener('click',function(e){
+e.preventDefault();
+document.querySelector(this.getAttribute('href')).scrollIntoView({
+behavior:'smooth'
+});
+});
+});
+</script>
 
-            <div class="card">
-                <div class="card-icon">💻</div>
-                <h3 class="card-title">Windows 11</h3>
-                <p class="card-desc">Latest OS with centered taskbar and widgets</p>
-                <a href="https://youtu.be/yykO9gH8Dpw" target="_blank" class="card-link">View Guide →</a>
-            </div>
-        </div>
-    </section>
-
-    <section class="section reveal" id="server">
-        <div class="section-header">
-            <h2 class="section-title">⚙️ Windows Server Tutorials</h2>
-            <p class="section-desc">Professional server installation and configuration guides</p>
-        </div>
-
-        <div class="links-list">
-            <a href="YOUR_YOUTUBE_LINK_HERE" target="_blank" class="link-item">
-                <span>🖥️</span>
-                <span>NT 4.0 Server</span>
-                <span class="link-arrow">→</span>
-            </a>
-            <a href="https://youtu.be/0Ap871A6bbs" target="_blank" class="link-item">
-                <span>🔷</span>
-                <span>Windows 2000 Server</span>
-                <span class="link-arrow">→</span>
-            </a>
-            <a href="https://youtu.be/NTNXlgm744w" target="_blank" class="link-item">
-                <span>⚙️</span>
-                <span>Windows Server 2003</span>
-                <span class="link-arrow">→</span>
-            </a>
-            <a href="https://youtu.be/G8AsS01ysEA" target="_blank" class="link-item">
-                <span>🖥️</span>
-                <span>Windows Server 2008 R2</span>
-                <span class="link-arrow">→</span>
-            </a>
-        </div>
-    </section>
-
-    <section class="section reveal" id="activities">
-        <div class="section-header">
-            <h2 class="section-title">📝 Hands-On Activities</h2>
-            <p class="section-desc">Practical lab exercises for server administration</p>
-        </div>
-
-        <div class="links-list">
-            <a href="https://youtu.be/e5BMiuOwE3U" target="_blank" class="link-item">
-                <span>🔑</span>
-                <span>Case Study 1</span>
-                <span class="link-arrow">→</span>
-            </a>
-            <a href="https://youtu.be/Sc88Dh-twW4" target="_blank" class="link-item">
-                <span>👥</span>
-                <span>Case Study 2</span>
-                <span class="link-arrow">→</span>
-            </a>
-            <a href="https://youtu.be/AC90SpsPhaY" target="_blank" class="link-item">
-                <span>🌐</span>
-                <span>Case Study 3</span>
-                <span class="link-arrow">→</span>
-            </a>
-            <a href="https://youtu.be/OlmKVoBCAJY" target="_blank" class="link-item">
-                <span>💾</span>
-                <span>Case Study 4</span>
-                <span class="link-arrow">→</span>
-            </a>
-            <a href="https://youtu.be/gutjGAOz1k4" target="_blank" class="link-item">
-                <span>📁</span>
-                <span>Case Study 5</span>
-                <span class="link-arrow">→</span>
-            </a>
-            <a href="https://youtu.be/0vbeYa7HlBY" target="_blank" class="link-item">
-                <span>🌐</span>
-                <span>Case Study 6</span>
-                <span class="link-arrow">→</span>
-            </a>
-            <a href="https://youtu.be/2Dt_HMdI5V0" target="_blank" class="link-item">
-                <span>📋</span>
-                <span>Case Study 7</span>
-                <span class="link-arrow">→</span>
-            </a>
-             <a href="YOUR_YOUTUBE_LINK_HERE" target="_blank" class="link-item">
-                <span>📋</span>
-                <span>Case Study 8</span>
-                <span class="link-arrow">→</span>
-            </a>
-             <a href="YOUR_YOUTUBE_LINK_HERE" target="_blank" class="link-item">
-                <span>📋</span>
-                <span>Case Study 9</span>
-                <span class="link-arrow">→</span>
-            </a>
-        </div>
-    </section>
-
-    <footer id="about">
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>⚙ WinVault</h3>
-                <p style="color: rgba(254, 248, 240, 0.7); line-height: 1.6;">
-                    Comprehensive Windows installation video tutorials created for BSIT-S-2A students and IT enthusiasts.
-                </p>
-            </div>
-
-            <div class="footer-section">
-                <h3>Quick Links</h3>
-                <ul class="footer-links">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#windows-os">Windows OS</a></li>
-                    <li><a href="#server">Windows Server</a></li>
-                    <li><a href="#activities">Activities</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-section">
-                <h3>Popular Tutorials</h3>
-                <ul class="footer-links">
-                    <li><a href="YOUR_YOUTUBE_LINK_HERE" target="_blank">Windows XP</a></li>
-                    <li><a href="YOUR_YOUTUBE_LINK_HERE" target="_blank">Windows 10</a></li>
-                    <li><a href="YOUR_YOUTUBE_LINK_HERE" target="_blank">Windows 11</a></li>
-                    <li><a href="YOUR_YOUTUBE_LINK_HERE" target="_blank">Server 2008 R2</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-section">
-                <h3>Activities</h3>
-                <ul class="footer-links">
-                    <li><a href="YOUR_YOUTUBE_LINK_HERE" target="_blank">DHCP Role</a></li>
-                    <li><a href="YOUR_YOUTUBE_LINK_HERE" target="_blank">RAID Configuration</a></li>
-                    <li><a href="YOUR_YOUTUBE_LINK_HERE" target="_blank">File Services</a></li>
-                    <li><a href="YOUR_YOUTUBE_LINK_HERE" target="_blank">Group Policy</a></li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="footer-bottom">
-            <p>© 2026 Nathaniell Jeffrey F. Hernandez • BSIT-S-2A • Created for educational purposes</p>
-        </div>
-    </footer>
-
-    <script>
-        // Scroll reveal animation
-        const reveals = document.querySelectorAll('.reveal');
-        
-        const revealOnScroll = () => {
-            reveals.forEach(element => {
-                const elementTop = element.getBoundingClientRect().top;
-                const windowHeight = window.innerHeight;
-                
-                if (elementTop < windowHeight - 100) {
-                    element.classList.add('active');
-                }
-            });
-        };
-
-        window.addEventListener('scroll', revealOnScroll);
-        revealOnScroll();
-
-        // Smooth scroll
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-    </script>
 </body>
 </html>
