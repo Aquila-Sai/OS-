@@ -387,6 +387,27 @@
             box-shadow: 0 4px 15px rgba(255, 107, 157, 0.3);
         }
 
+        /* Video Embed */
+        .video-embed {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 15px;
+            margin-top: 1.5rem;
+            background: rgba(0, 0, 0, 0.3);
+        }
+        
+        .video-embed iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 15px;
+        }
+
         /* Links List */
         .links-list {
             display: grid;
@@ -553,27 +574,48 @@
 
         <div class="featured-grid">
             <div class="featured-card">
-                <span class="featured-badge">🪟 Latest</span>
-                <div class="card-icon">💻</div>
+                <span class="featured-badge">Latest</span>
+                <div class="card-icon">Windows 11</div>
                 <h3 class="card-title">Windows 11</h3>
                 <p class="card-desc">Complete installation walkthrough of the latest Windows OS with all modern features and settings.</p>
-                <a href="https://youtu.be/yykO9gH8Dpw" target="_blank" class="card-link">Watch Tutorial →</a>
+                <div class="video-embed">
+                    <iframe 
+                        src="https://www.youtube.com/embed/yykO9gH8Dpw" 
+                        title="Windows 11 Installation Tutorial"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
             </div>
 
             <div class="featured-card">
-                <span class="featured-badge">🖥️ Server</span>
-                <div class="card-icon">⚙️</div>
+                <span class="featured-badge">Server</span>
+                <div class="card-icon">Server 2008 R2</div>
                 <h3 class="card-title">Server 2008 R2</h3>
                 <p class="card-desc">Professional server setup and configuration guide with detailed explanations.</p>
-                <a href="https://youtu.be/G8AsS01ysEA" target="_blank" class="card-link">Watch Tutorial →</a>
+                <div class="video-embed">
+                    <iframe 
+                        src="https://www.youtube.com/embed/G8AsS01ysEA" 
+                        title="Windows Server 2008 R2 Installation Tutorial"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
             </div>
 
             <div class="featured-card">
-                <span class="featured-badge">💾 Classic</span>
-                <div class="card-icon">🎮</div>
+                <span class="featured-badge">Classic</span>
+                <div class="card-icon">Windows XP</div>
                 <h3 class="card-title">Windows XP</h3>
                 <p class="card-desc">Nostalgic installation tutorial for the beloved classic operating system.</p>
-                <a href="https://youtu.be/iJIyQxvh8KM" target="_blank" class="card-link">Watch Tutorial →</a>
+                <div class="video-embed">
+                    <iframe 
+                        src="https://www.youtube.com/embed/iJIyQxvh8KM" 
+                        title="Windows XP Installation Tutorial"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
             </div>
         </div>
     </section>
@@ -610,7 +652,14 @@
                 <div class="card-icon">🔷</div>
                 <h3 class="card-title">Windows 2000</h3>
                 <p class="card-desc">Professional OS with NT kernel stability</p>
-                <a href="https://youtu.be/LacOVc2Ofh0" target="_blank" class="card-link">View Guide →</a>
+                <div class="video-embed">
+                    <iframe 
+                        src="https://www.youtube.com/embed/LacOVc2Ofh0" 
+                        title="Windows 2000 Installation Tutorial"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
             </div>
 
             <div class="card">
@@ -631,35 +680,70 @@
                 <div class="card-icon">✨</div>
                 <h3 class="card-title">Windows Vista</h3>
                 <p class="card-desc">Aero interface with visual enhancements</p>
-                <a href="https://youtu.be/0siP9hEWVPg" target="_blank" class="card-link">View Guide →</a>
+                <div class="video-embed">
+                    <iframe 
+                        src="https://www.youtube.com/embed/0siP9hEWVPg" 
+                        title="Windows Vista Installation Tutorial"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
             </div>
 
             <div class="card">
-                <div class="card-icon">🏆</div>
+                <div class="card-icon">7</div>
                 <h3 class="card-title">Windows 7</h3>
                 <p class="card-desc">Refined and perfected user experience</p>
-                <a href="https://youtu.be/tt6bNADKhgE" target="_blank" class="card-link">View Guide →</a>
+                <div class="video-embed">
+                    <iframe 
+                        src="https://www.youtube.com/embed/tt6bNADKhgE" 
+                        title="Windows 7 Installation Tutorial"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
             </div>
 
             <div class="card">
-                <div class="card-icon">📱</div>
+                <div class="card-icon">8</div>
                 <h3 class="card-title">Windows 8</h3>
                 <p class="card-desc">Modern UI with touch optimization</p>
-                <a href="https://youtu.be/qvPykLs85FU" target="_blank" class="card-link">View Guide →</a>
+                <div class="video-embed">
+                    <iframe 
+                        src="https://www.youtube.com/embed/qvPykLs85FU" 
+                        title="Windows 8 Installation Tutorial"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
             </div>
 
             <div class="card">
-                <div class="card-icon">🚀</div>
+                <div class="card-icon">10</div>
                 <h3 class="card-title">Windows 10</h3>
                 <p class="card-desc">Unified platform across all devices</p>
-                <a href="https://youtu.be/QIGwn6rpa98" target="_blank" class="card-link">View Guide →</a>
+                <div class="video-embed">
+                    <iframe 
+                        src="https://www.youtube.com/embed/QIGwn6rpa98" 
+                        title="Windows 10 Installation Tutorial"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
             </div>
 
             <div class="card">
-                <div class="card-icon">💻</div>
+                <div class="card-icon">11</div>
                 <h3 class="card-title">Windows 11</h3>
                 <p class="card-desc">Latest OS with centered taskbar and widgets</p>
-                <a href="https://youtu.be/yykO9gH8Dpw" target="_blank" class="card-link">View Guide →</a>
+                <div class="video-embed">
+                    <iframe 
+                        src="https://www.youtube.com/embed/yykO9gH8Dpw" 
+                        title="Windows 11 Installation Tutorial"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
             </div>
         </div>
     </section>
@@ -670,27 +754,52 @@
             <p class="section-desc">Professional server installation and configuration guides</p>
         </div>
 
-        <div class="links-list">
-            <a href="YOUR_YOUTUBE_LINK_HERE" target="_blank" class="link-item">
-                <span>🖥️</span>
-                <span>NT 4.0 Server</span>
-                <span class="link-arrow">→</span>
-            </a>
-            <a href="https://youtu.be/0Ap871A6bbs" target="_blank" class="link-item">
-                <span>🔷</span>
-                <span>Windows 2000 Server</span>
-                <span class="link-arrow">→</span>
-            </a>
-            <a href="https://youtu.be/NTNXlgm744w" target="_blank" class="link-item">
-                <span>⚙️</span>
-                <span>Windows Server 2003</span>
-                <span class="link-arrow">→</span>
-            </a>
-            <a href="https://youtu.be/G8AsS01ysEA" target="_blank" class="link-item">
-                <span>🖥️</span>
-                <span>Windows Server 2008 R2</span>
-                <span class="link-arrow">→</span>
-            </a>
+        <div class="card-grid">
+            <div class="card">
+                <div class="card-icon">NT 4.0 Server</div>
+                <h3 class="card-title">NT 4.0 Server</h3>
+                <p class="card-desc">Legacy enterprise server installation</p>
+                <a href="YOUR_YOUTUBE_LINK_HERE" target="_blank" class="card-link">View Guide</a>
+            </div>
+            <div class="card">
+                <div class="card-icon">Windows 2000 Server</div>
+                <h3 class="card-title">Windows 2000 Server</h3>
+                <p class="card-desc">Professional server with NT kernel</p>
+                <div class="video-embed">
+                    <iframe 
+                        src="https://www.youtube.com/embed/0Ap871A6bbs" 
+                        title="Windows 2000 Server Installation Tutorial"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-icon">Windows Server 2003</div>
+                <h3 class="card-title">Windows Server 2003</h3>
+                <p class="card-desc">Enhanced server with improved features</p>
+                <div class="video-embed">
+                    <iframe 
+                        src="https://www.youtube.com/embed/NTNXlgm744w" 
+                        title="Windows Server 2003 Installation Tutorial"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-icon">Windows Server 2008 R2</div>
+                <h3 class="card-title">Windows Server 2008 R2</h3>
+                <p class="card-desc">Modern server with advanced capabilities</p>
+                <div class="video-embed">
+                    <iframe 
+                        src="https://www.youtube.com/embed/G8AsS01ysEA" 
+                        title="Windows Server 2008 R2 Installation Tutorial"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -700,52 +809,110 @@
             <p class="section-desc">Practical lab exercises for server administration</p>
         </div>
 
-        <div class="links-list">
-            <a href="https://youtu.be/e5BMiuOwE3U" target="_blank" class="link-item">
-                <span>🔑</span>
-                <span>Case Study 1</span>
-                <span class="link-arrow">→</span>
-            </a>
-            <a href="https://youtu.be/Sc88Dh-twW4" target="_blank" class="link-item">
-                <span>👥</span>
-                <span>Case Study 2</span>
-                <span class="link-arrow">→</span>
-            </a>
-            <a href="https://youtu.be/AC90SpsPhaY" target="_blank" class="link-item">
-                <span>🌐</span>
-                <span>Case Study 3</span>
-                <span class="link-arrow">→</span>
-            </a>
-            <a href="https://youtu.be/OlmKVoBCAJY" target="_blank" class="link-item">
-                <span>💾</span>
-                <span>Case Study 4</span>
-                <span class="link-arrow">→</span>
-            </a>
-            <a href="https://youtu.be/gutjGAOz1k4" target="_blank" class="link-item">
-                <span>📁</span>
-                <span>Case Study 5</span>
-                <span class="link-arrow">→</span>
-            </a>
-            <a href="https://youtu.be/0vbeYa7HlBY" target="_blank" class="link-item">
-                <span>🌐</span>
-                <span>Case Study 6</span>
-                <span class="link-arrow">→</span>
-            </a>
-            <a href="https://youtu.be/2Dt_HMdI5V0" target="_blank" class="link-item">
-                <span>📋</span>
-                <span>Case Study 7</span>
-                <span class="link-arrow">→</span>
-            </a>
-             <a href="YOUR_YOUTUBE_LINK_HERE" target="_blank" class="link-item">
-                <span>📋</span>
-                <span>Case Study 8</span>
-                <span class="link-arrow">→</span>
-            </a>
-             <a href="YOUR_YOUTUBE_LINK_HERE" target="_blank" class="link-item">
-                <span>📋</span>
-                <span>Case Study 9</span>
-                <span class="link-arrow">→</span>
-            </a>
+        <div class="card-grid">
+            <div class="card">
+                <div class="card-icon">Case Study 1</div>
+                <h3 class="card-title">Case Study 1</h3>
+                <p class="card-desc">First hands-on lab exercise</p>
+                <div class="video-embed">
+                    <iframe 
+                        src="https://www.youtube.com/embed/e5BMiuOwE3U" 
+                        title="Case Study 1 Tutorial"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-icon">Case Study 2</div>
+                <h3 class="card-title">Case Study 2</h3>
+                <p class="card-desc">Second practical lab exercise</p>
+                <div class="video-embed">
+                    <iframe 
+                        src="https://www.youtube.com/embed/Sc88Dh-twW4" 
+                        title="Case Study 2 Tutorial"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-icon">Case Study 3</div>
+                <h3 class="card-title">Case Study 3</h3>
+                <p class="card-desc">Third hands-on activity</p>
+                <div class="video-embed">
+                    <iframe 
+                        src="https://www.youtube.com/embed/AC90SpsPhaY" 
+                        title="Case Study 3 Tutorial"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-icon">Case Study 4</div>
+                <h3 class="card-title">Case Study 4</h3>
+                <p class="card-desc">Fourth practical exercise</p>
+                <div class="video-embed">
+                    <iframe 
+                        src="https://www.youtube.com/embed/OlmKVoBCAJY" 
+                        title="Case Study 4 Tutorial"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-icon">Case Study 5</div>
+                <h3 class="card-title">Case Study 5</h3>
+                <p class="card-desc">Fifth lab activity</p>
+                <div class="video-embed">
+                    <iframe 
+                        src="https://www.youtube.com/embed/gutjGAOz1k4" 
+                        title="Case Study 5 Tutorial"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-icon">Case Study 6</div>
+                <h3 class="card-title">Case Study 6</h3>
+                <p class="card-desc">Sixth practical exercise</p>
+                <div class="video-embed">
+                    <iframe 
+                        src="https://www.youtube.com/embed/0vbeYa7HlBY" 
+                        title="Case Study 6 Tutorial"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-icon">Case Study 7</div>
+                <h3 class="card-title">Case Study 7</h3>
+                <p class="card-desc">Seventh hands-on activity</p>
+                <div class="video-embed">
+                    <iframe 
+                        src="https://www.youtube.com/embed/2Dt_HMdI5V0" 
+                        title="Case Study 7 Tutorial"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-icon">Case Study 8</div>
+                <h3 class="card-title">Case Study 8</h3>
+                <p class="card-desc">Eighth practical exercise</p>
+                <a href="YOUR_YOUTUBE_LINK_HERE" target="_blank" class="card-link">View Guide</a>
+            </div>
+            <div class="card">
+                <div class="card-icon">Case Study 9</div>
+                <h3 class="card-title">Case Study 9</h3>
+                <p class="card-desc">Ninth lab activity</p>
+                <a href="YOUR_YOUTUBE_LINK_HERE" target="_blank" class="card-link">View Guide</a>
+            </div>
         </div>
     </section>
 
@@ -828,4 +995,3 @@
     </script>
 </body>
 </html>
-
